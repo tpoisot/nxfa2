@@ -8,18 +8,6 @@ import random
 import matplotlib.pyplot as plt
 
 
-## Plotting using the FR layout
-#nx.draw_spring(FW,iterations=500)
-#plt.show()
-
-## Utility functions
-def eucl_dist(a,b):
-    """
-    Euclidean distance
-    """
-    Di = [(a[i]-b[i])**2 for i in xrange(len(a))]
-    return np.sqrt(np.sum(Di))
-
 ## Now the layout function
 def forceatlas2_layout(G, iterations=10, linlog=False, pos=None, nohubs=False,
                        kr=0.001, k=None, dim=2):
