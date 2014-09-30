@@ -7,8 +7,6 @@ import random
 
 import matplotlib.pyplot as plt
 
-## Read a food web with > 100 nodes
-FW = nx.read_edgelist('web.edges', create_using=nx.DiGraph())
 
 ## Plotting using the FR layout
 #nx.draw_spring(FW,iterations=500)
@@ -95,7 +93,9 @@ def forceatlas2_layout(G, iterations=10, linlog=False, pos=None, nohubs=False,
 
 
 if __name__ == "__main__":
-    positions = forceatlas2_layout(FW, linlog=False, nohubs=False, iterations=100)
+    ## Read a food web with > 100 nodes
+    FW = nx.read_edgelist('web.edges', create_using=nx.DiGraph())
+    positions = forceatlas2_layout(FW, linlog=False, nohubs=False,
+                                   iterations=100)
     nx.draw(FW, positions)
     plt.show()
-
