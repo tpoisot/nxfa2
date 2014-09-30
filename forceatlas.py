@@ -72,7 +72,7 @@ def forceatlas2_layout(G, iterations=10, linlog=False, pos=None, nohubs=False,
                 (delta * (Dist - Ai * distance / k)).sum(axis=1)
             # update positions
         length = np.sqrt((displacement ** 2).sum(axis=0))
-        length = np.where(length < 0.01, 0.1, length)
+        length = np.where(length < 0.01, 0.01, length)
         pos += (displacement * t / length).T
         # cool temperature
         t -= dt
