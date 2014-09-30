@@ -1,6 +1,8 @@
 #! /usr/bin/python
 
 import networkx as nx
+
+from scipy.sparse import spdiags, coo_matrix
 import scipy as sp
 import numpy as np
 
@@ -29,7 +31,6 @@ def forceatlas2_layout(G, iterations=10, linlog=False, pos=None, nohubs=False,
     # This comes from the spares FR layout in nx
     A = nx.to_scipy_sparse_matrix(G, dtype='f')
     nnodes, _ = A.shape
-    from scipy.sparse import spdiags, coo_matrix
 
     try:
         A = A.tolil()
